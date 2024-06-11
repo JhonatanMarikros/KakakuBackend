@@ -82,7 +82,7 @@ ul li::after {
 
 .caption ul li {
     display: inline-block;
-    float: left;
+    float:left;
     margin: 0 15px;
     display: flex;
     align-items: center;
@@ -184,4 +184,5 @@ nav.menu-wrapper ul li.selected {
 
 .menu-item-image {
     width: 250px;
+    border-radius: 50%;
 }
