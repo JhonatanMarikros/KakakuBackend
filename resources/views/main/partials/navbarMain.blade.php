@@ -11,19 +11,19 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Menu</a>
+              <a class="nav-link" href="/menu">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">LOCATION</a>
+              <a class="nav-link" href="/location">Location</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">COUPON</a>
+              <a class="nav-link" href="/coupon">Coupon</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-danger text-white" href="#">LOGIN/REGISTER</a>
+              <a class="nav-link btn btn-danger text-white" href="/login">Login/Register</a>
             </li>
           </ul>
         </div>

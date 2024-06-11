@@ -1,0 +1,29 @@
+.location-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.location-info {
+    max-width: 50%;
+}
+.location-map {
+    max-width: 45%;
+}
+.location-map img {
+    max-width: 100%;
+    height: auto;
+}
+.location-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.location-card p {
+    margin-bottom: 5px;
+}   
+
+.btn-order a {
+    color: white;
+    text-decoration: none;
+}   
