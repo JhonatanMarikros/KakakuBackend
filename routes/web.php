@@ -12,11 +12,6 @@ Route::get('/location', [LocationController::class, 'mainPage'])->name('location
 
 
 
-
-
-
-
-
 // ADMIN
 Route::get('/adminhome', function () {
     return view('admin.home', [
