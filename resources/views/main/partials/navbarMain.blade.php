@@ -14,6 +14,9 @@
               <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/">User</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/menu">Menu</a>
             </li>
             <li class="nav-item">
