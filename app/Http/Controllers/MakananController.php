@@ -12,81 +12,107 @@ class MakananController extends Controller
     public function index()
     {
         $makanans = Makanan::all();
-        $title = 'Daftar Makanan'; 
+        $title = "Makanan";
         return view('admin.makanan.index', compact('makanans', 'title'));
     }
 
     public function create()
     {
-        $title = 'Tambah Makanan';
-    $categories = ["Maincourse", "Pasta", "Bowl Series", "French Fries Series", "Finger Food", "Sweet"];
-    return view('admin.makanan.create', compact('title', 'categories'));
-        
+        $categories = ['Maincourse', 'Pasta', 'Bowl Series', 'French Fries Series', 'Finger Food', 'Sweet'];
+        $title = "Makanan";
+        return view('admin.makanan.create', compact('categories', 'title'));
     }
 
     public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'nama' => 'required|string|max:255',
-        'harga' => 'required|numeric',
-        'deskripsi' => 'required|string',
-        'gambar' => 'nullable|image|max:2048',
-        'kategori' => 'required|string|max:255',
-    ]);
-
-    if ($request->hasFile('gambar')) {
-        $path = $request->file('gambar')->store('public/images');
-        Log::info('Gambar path: ' . $path);
-        $validatedData['gambar'] = basename($path);
-    }
-
-    Makanan::create($validatedData);
-
-    return redirect()->route('adminmakanan.index')->with('success', 'Makanan berhasil ditambahkan.');
-}
-
-
-    public function show(Makanan $makanan)
     {
-        $title = 'Detail Makanan';
-        return view('admin.makanan.show', compact('makanan' , 'title'));
-    }
-
-    public function edit(Makanan $makanan)
-    {
-        $title = 'Edit Makanan';
-        $categories = ["Maincourse", "Pasta", "Bowl Series", "French Fries Series", "Finger Food", "Sweet"];
-        return view('admin.makanan.edit', compact('makanan', 'title', 'categories'));
-    }
-
-    public function update(Request $request, Makanan $makanan)
-    {
-        $validatedData = $request->validate([
-            'nama' => 'required|string|max:255',
+        $request->validate([
+            'nama' => 'required',
             'harga' => 'required|numeric',
-            'deskripsi' => 'required|string',
-            'gambar' => 'nullable|image|max:2048',
-            'kategori' => 'required|string|max:255',
+            'deskripsi' => 'required',
+            'gambar' => 'required|image|max:2048',
+            'kategori' => 'required|in:Maincourse,Pasta,Bowl Series,French Fries Series,Finger Food,Sweet'
         ]);
 
+        $path = $request->file('gambar')->store('public/images');
+
+        Makanan::create([
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+            'gambar' => $path,
+            'kategori' => $request->kategori,
+        ]);
+
+        return redirect()->route('adminmakanan.index')->with('success', 'Makanan created successfully.');
+    }
+
+    public function show($id)
+    {
+        $makanan = Makanan::findOrFail($id);
+        $title = "Makanan";
+        return view('admin.makanan.show', compact('makanan', 'title'));
+    }
+
+    public function edit($id)
+    {
+        $makanan = Makanan::findOrFail($id);
+        $title = "Makanan";
+        $categories = ['Maincourse', 'Pasta', 'Bowl Series', 'French Fries Series', 'Finger Food', 'Sweet'];
+        return view('admin.makanan.edit', compact('makanan', 'categories', 'title'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'harga' => 'required|numeric',
+            'deskripsi' => 'required',
+            'gambar' => 'image|max:2048',
+            'kategori' => 'required|in:Maincourse,Pasta,Bowl Series,French Fries Series,Finger Food,Sweet'
+        ]);
+
+        $makanan = Makanan::findOrFail($id);
+
         if ($request->hasFile('gambar')) {
+            Storage::delete($makanan->gambar);
             $path = $request->file('gambar')->store('public/images');
-            $validatedData['gambar'] = basename($path);
+        } else {
+            $path = $makanan->gambar;
         }
 
-        $makanan->update($validatedData);
+        $makanan->update([
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+            'gambar' => $path,
+            'kategori' => $request->kategori,
+        ]);
 
-        return redirect()->route('adminmakanan.index')->with('success', 'Makanan berhasil diperbarui.');
+        return redirect()->route('adminmakanan.index')->with('success', 'Makanan updated successfully.');
     }
 
-    public function destroy(Makanan $makanan)
-{
-    Log::info('Trying to delete makanan with ID: ' . $makanan->id);
+    public function destroy($id)
+    {
+        $makanan = Makanan::findOrFail($id);
 
-    if ($makanan->gambar) {
-        Storage::disk('public')->delete($makanan->gambar);
+        Log::info('Attempting to delete Makanan with ID: ' . $makanan->id);
+        
+        if ($makanan->gambar) {
+            Log::info('Image path: ' . $makanan->gambar);
+            Storage::delete($makanan->gambar);
+        } else {
+            Log::info('No image to delete');
+        }
+        
+        $makanan->delete();
+        Log::info('Makanan deleted successfully with ID: ' . $makanan->id);
+        
+        return redirect()->route('adminmakanan.index')->with('success', 'Makanan deleted successfully.');
     }
-    $makanan->delete();
-    return redirect()->route('adminmakanan.index')->with('success', 'Makanan berhasil dihapus.');
-}
+
+    public function showMenu()
+    {
+        $makanans = Makanan::all()->groupBy('kategori'); // Mengelompokkan data makanan berdasarkan kategori
+        return view('main.menu', compact('makanans')); // Mengirim data ke view
+    }
 }

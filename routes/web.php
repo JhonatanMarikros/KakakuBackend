@@ -31,3 +31,5 @@ Route::get('/admincoupon', function () {
 });
 
 Route::resource('adminmakanan', MakananController::class);
+
+Route::get('/menu', [MakananController::class, 'showMenu'])->name('menu');

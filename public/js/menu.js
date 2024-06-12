@@ -1,5 +1,5 @@
 function showMenu(category) {
-    const categories = ['udon', 'rice-bowls', 'tempura', 'sides', 'drinks'];
+    const categories = ['maincourse', 'pasta', 'bowlseries', 'french-fries-series', 'finger-food', 'sweet'];
     categories.forEach(cat => {
         const element = document.getElementById(cat);
         if (element) {
@@ -16,5 +16,5 @@ function showMenu(category) {
 
 // Tampilkan kategori pertama secara default
 document.addEventListener("DOMContentLoaded", function() {
-    showMenu('udon');
+    showMenu('maincourse');
 });

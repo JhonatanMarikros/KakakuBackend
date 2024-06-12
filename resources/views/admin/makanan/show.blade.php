@@ -2,15 +2,11 @@
 
 @section('container')
 <div class="container">
-    <h1>{{ $title }}</h1>
-    <div class="card">
-        <div class="card-body">
-            <h2>{{ $makanan->nama }}</h2>
-            <p>Harga: {{ $makanan->harga }}</p>
-            <p>Deskripsi: {{ $makanan->deskripsi }}</p>
-            <p>Kategori: {{ $makanan->kategori }}</p>
-            <img src="{{ asset('storage/images/' . $makanan->gambar) }}" alt="{{ $makanan->nama }}" width="300">
-        </div>
-    </div>
+    <h1>{{ $makanan->nama }}</h1>
+    <p>Harga: {{ $makanan->harga }}</p>
+    <p>Deskripsi: {{ $makanan->deskripsi }}</p>
+    <img src="{{ Storage::url($makanan->gambar) }}" alt="{{ $makanan->nama }}" width="300">
+    <p>Kategori: {{ $makanan->kategori }}</p>
+    <a href="{{ route('adminmakanan.index') }}" class="btn btn-primary">Kembali</a>
 </div>
 @endsection
