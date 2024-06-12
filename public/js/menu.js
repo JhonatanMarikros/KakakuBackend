@@ -1,5 +1,5 @@
 function showMenu(category) {
-    const categories = ['maincourse', 'pasta', 'bowlseries', 'french-fries-series', 'finger-food', 'sweet'];
+    const categories = ['maincourse', 'pasta', 'bowl-series', 'french-fries-series', 'finger-food', 'sweet'];
     categories.forEach(cat => {
         const element = document.getElementById(cat);
         if (element) {

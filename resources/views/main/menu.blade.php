@@ -37,7 +37,7 @@
                 <ul id="menu-tabs" class="nav nav-pills justify-content-center">
                     <li class="menu-tab selected" data-tab="maincourse" onclick="showMenu('maincourse')">Maincourse</li>
                     <li class="menu-tab" data-tab="pasta" onclick="showMenu('pasta')">Pasta</li>
-                    <li class="menu-tab" data-tab="bowlseries" onclick="showMenu('bowlseries')">Bowl Series</li>
+                    <li class="menu-tab" data-tab="bowl-series" onclick="showMenu('bowl-series')">Bowl Series</li>
                     <li class="menu-tab" data-tab="french-fries-series" onclick="showMenu('french-fries-series')">French Fries Series</li>
                     <li class="menu-tab" data-tab="finger-food" onclick="showMenu('finger-food')">Finger Food</li>
                     <li class="menu-tab" data-tab="sweet" onclick="showMenu('sweet')">Sweet</li>
@@ -58,7 +58,7 @@
                     @foreach($items as $makanan)
                         <div class="menu-item type-menu">
                             <div class="menu-item-image">
-                                <img src="{{ asset('images/' . $makanan->gambar) }}" alt="{{ $makanan->nama }}">
+                                <img src="{{ Storage::url($makanan->gambar) }}">
                             </div>
                             <div class="menu-item-description">
                                 <h3>{{ $makanan->nama }}</h3>
