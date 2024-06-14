@@ -12,6 +12,12 @@
     <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-5">
         <div class="login-container col-md-6">
             <h2 class="login-heading text-center mb-4">Login</h2>
+
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             
             @if ($errors->has('email'))
                 <div class="alert alert-danger">
@@ -23,7 +29,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="email">Alamat Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Kata Sandi</label>
@@ -35,12 +41,6 @@
             <div class="text-center mt-3">
                 <p>Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a></p>
             </div>
-            
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

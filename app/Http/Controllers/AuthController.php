@@ -18,12 +18,13 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
             return redirect()->intended('home');
         }
 
         return back()->withErrors([
-            'email' => 'Email atau password salah.',
-        ]);
+            'email' => 'Email atau Password salah',
+        ])->onlyInput('email');
     }
 
     public function showRegisterForm()
@@ -45,14 +46,13 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        // Redirect ke halaman login setelah registrasi berhasil
-        return redirect()->route('login')->with('success', 'Registration successful! Please login.');
+        // Redirect to login page after successful registration
+        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

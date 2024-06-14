@@ -10,6 +10,11 @@
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-5">
+        @if (session('success'))
+            <div class="alert alert-success mt-4">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="register-container col-md-6">
             <h2 class="register-heading text-center mb-4">Register</h2>
             <form method="POST" action="{{ route('register') }}">
@@ -59,11 +64,6 @@
                 <p>Sudah punya akun? <a href="{{ route('login') }}">Login di sini</a></p>
             </div>
 
-            @if (session('success'))
-                <div class="alert alert-success mt-4">
-                    {{ session('success') }}
-                </div>
-            @endif
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
