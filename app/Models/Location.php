@@ -13,7 +13,7 @@ class Location extends Model
         'name',
         'description',
         'image',
-        'open', // Add this line
-        'close', // Add this line
+        'open',
+        'close',
     ];
 }
