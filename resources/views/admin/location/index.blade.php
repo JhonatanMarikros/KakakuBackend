@@ -10,6 +10,8 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Image</th>
+                <th>Open Time</th>
+                <th>Close Time</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -26,6 +28,8 @@
                         <p>No Image</p>
                     @endif
                 </td>
+                <td>{{ $location->open }}</td>
+                <td>{{ $location->close }}</td>
                 <td>
                     <a href="{{ route('adminlocations.show', $location->id) }}" class="btn btn-info">Show</a>
                     <a href="{{ route('adminlocations.edit', $location->id) }}" class="btn btn-warning">Edit</a>

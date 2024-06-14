@@ -28,9 +28,11 @@ class LocationController extends Controller
             'name' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'open' => 'nullable|date_format:H:i', // Add this line
+            'close' => 'nullable|date_format:H:i', // Add this line
         ]);
 
-        $data = $request->only(['name', 'description']);
+        $data = $request->only(['name', 'description', 'open', 'close']); // Add 'open' and 'close' here
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('images', 'public');
         }
@@ -57,9 +59,11 @@ class LocationController extends Controller
             'name' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'open' => 'nullable|date_format:H:i', // Add this line
+            'close' => 'nullable|date_format:H:i', // Add this line
         ]);
 
-        $data = $request->only(['name', 'description']);
+        $data = $request->only(['name', 'description', 'open', 'close']); // Add 'open' and 'close' here
         if ($request->hasFile('image')) {
             if ($adminlocation->image) {
                 Storage::disk('public')->delete($adminlocation->image);
