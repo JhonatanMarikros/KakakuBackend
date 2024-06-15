@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\UserAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,7 +28,7 @@ class AdminUserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
         ], [
-            'password.min' => 'Password minimal harus 8 karakter.',
+            'password.min' => 'Password minimal harus 8 karakter atau angka.',
         ]);
 
         $user = new User();

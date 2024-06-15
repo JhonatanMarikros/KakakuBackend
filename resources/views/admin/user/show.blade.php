@@ -1,8 +1,8 @@
 @extends('admin.layouts.main')
 @section('container')
     <div class="container">
-        <h1>User Details</h1>
-        <div class="card">
+        <h1>{{ $title }}</h1>
+        <div class="card mt-4">
             <div class="card-header">
                 User Information
             </div>

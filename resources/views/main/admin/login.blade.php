@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Admin Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
@@ -13,7 +13,7 @@
 <body>
     <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-5">
         <div class="login-container col-md-6">
-            <h2 class="login-heading text-center mb-4">Login</h2>
+            <h2 class="login-heading text-center mb-4">{{ $title }}</h2>
 
             @if (session('success'))
                 <div class="alert alert-success">
@@ -21,13 +21,13 @@
                 </div>
             @endif
 
-            @if ($errors->has('email'))
+            @if (session('error'))
                 <div class="alert alert-danger">
-                    {{ $errors->first('email') }}
+                    {{ session('error') }}
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('admin.login.post') }}">
                 @csrf
                 <div class="form-group">
                     <label for="email">Alamat Email</label>
@@ -40,13 +40,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
             </form>
-
-            <div class="text-center mt-3">
-                <p>Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a></p>
-            </div>
-            <div class="text-center mt-3">
-                <a href="{{ route('admin.login') }}">Login sebagai Admin?</a>
-            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
