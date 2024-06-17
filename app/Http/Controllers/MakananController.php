@@ -18,7 +18,7 @@ class MakananController extends Controller
 
     public function create()
     {
-        $categories = ['Maincourse', 'Pasta', 'Bowl Series', 'French Fries Series', 'Finger Food', 'Sweet'];
+        $categories = ['Signature Coffee', 'Coffee Based', 'Hand Drip Coffee', 'Signature Mocktail', 'Treat Youtself', 'Non Coffee based','Tea Based'];
         $title = "Makanan";
         return view('admin.makanan.create', compact('categories', 'title'));
     }
@@ -112,7 +112,7 @@ class MakananController extends Controller
 
     public function showMenu()
     {
-        $makanans = Makanan::all()->groupBy('kategori'); // Mengelompokkan data makanan berdasarkan kategori
-        return view('main.menu', compact('makanans')); // Mengirim data ke view
+        $makanans = Makanan::all()->groupBy('kategori'); 
+        return view('main.makanan', compact('makanans')); 
     }
 }

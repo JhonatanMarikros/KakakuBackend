@@ -1,26 +1,17 @@
 <?php
 
 use App\Http\Controllers\MakananController;
+use App\Http\Controllers\MinumanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main.home');
 });
 
-Route::get('/menu', function () {
-    return view('main.menu');
-});
-
 // ADMIN
 Route::get('/adminhome', function () {
     return view('admin.home', [
         'title' => 'Home'
-    ]);
-});
-
-Route::get('/adminminuman', function () {
-    return view('admin.minuman', [
-        'title' => 'Minuman'
     ]);
 });
 
@@ -32,4 +23,8 @@ Route::get('/admincoupon', function () {
 
 Route::resource('adminmakanan', MakananController::class);
 
-Route::get('/menu', [MakananController::class, 'showMenu'])->name('menu');
+Route::get('/menu/makanan', [MakananController::class, 'showMenu'])->name('makanan');
+
+Route::resource('adminminuman', MinumanController::class);
+
+Route::get('/menu/minuman', [MinumanController::class, 'showMenu'])->name('minuman');
