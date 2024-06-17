@@ -10,8 +10,8 @@
               <a class="nav-link {{ $title === 'Admin Home' ? 'active' : '' }}" href="{{ route('admin.home') }}">Home</a>
               <a class="nav-link {{ $title === 'Users' ? 'active' : '' }}" href="{{ route('adminuser.index') }}">Users</a>
               <a class="nav-link {{ $title === 'Admin' ? 'active' : '' }}" href="{{ route('admins.index') }}">Admin</a>
-              <a class="nav-link {{ $title === 'Makanan' ? 'active' : '' }}" href="{{ route('adminmakanan') }}">Makanan</a>
-              <a class="nav-link {{ $title === 'Minuman' ? 'active' : '' }}" href="{{ route('adminminuman') }}">Minuman</a>
+              <a class="nav-link" {{ ($title === 'Makanan') ? 'active' : '' }} href="/adminmakanan">Makanan</a>
+          <a class="nav-link" {{ ($title === 'Minuman') ? 'active' : '' }} href="/adminminuman">Minuman</a>
               <a class="nav-link" {{ ($title === 'Location') ? 'active' : '' }} href="/adminlocations">Location</a>
               <a class="nav-link {{ $title === 'Coupon' ? 'active' : '' }}" href="{{ route('admincoupon') }}">Coupon</a>
           </div>

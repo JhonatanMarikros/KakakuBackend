@@ -13,7 +13,13 @@
                       <a class="nav-link" href="/">Home</a>
                   </li>
                   <li class="nav-item">
+                    <div class="dropdown">
                       <a class="nav-link" href="#">Menu</a>
+                      <div class="dropdown-content">
+                          <a href="/menu/makanan" id="makanan">Makanan</a>
+                          <a href="/menu/minuman" id="minuman">Minuman</a>
+                      </div>
+                  </div>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#">Location</a>

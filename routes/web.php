@@ -1,20 +1,45 @@
 <?php
+use App\Http\Controllers\MakananController;
+use App\Http\Controllers\MinumanController;
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $title = 'Home';
     return view('main.home', compact('title'));
 });
-
 Route::get('/home', function () {
     $title = 'Home';
     return view('main.home', compact('title'));
 });
+Route::get('/menu/makanan', [MakananController::class, 'showMenu'])->name('makanan');
+
+Route::get('/menu/minuman', [MinumanController::class, 'showMenu'])->name('minuman');
+
+// ADMIN
+Route::get('/adminhome', function () {
+    return view('admin.home', [
+        'title' => 'Home'
+    ]);
+});
+
+Route::get('/admincoupon', function () {
+    return view('admin.coupon', [
+        'title' => 'Minuman'
+    ]);
+});
+
+Route::resource('adminmakanan', MakananController::class);
+
+
+Route::resource('adminminuman', MinumanController::class);
+
+
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -39,3 +64,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::resource('admins', AdminController::class);
 });
 
+Route::get('/admincoupon', function () {
+    $title = 'Coupon';
+    return view('admin.coupon', compact('title'));
+})->name('admincoupon')->middleware('auth:admin');
