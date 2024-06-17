@@ -18,7 +18,7 @@ class MakananController extends Controller
 
     public function create()
     {
-        $categories = ['Signature Coffee', 'Coffee Based', 'Hand Drip Coffee', 'Signature Mocktail', 'Treat Youtself', 'Non Coffee based','Tea Based'];
+        $categories = ['Maincourse', 'Pasta', 'Bowl Series', 'French Fries Series', 'Finger Food', 'Sweet'];
         $title = "Makanan";
         return view('admin.makanan.create', compact('categories', 'title'));
     }

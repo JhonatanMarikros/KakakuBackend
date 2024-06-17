@@ -160,7 +160,7 @@ nav.menu-wrapper ul li.selected {
     float: left;
     display: flex;
     align-items: center;
-    padding: 10px 18px;
+    padding: 10px 20px;
     min-height: 240px;
 }
 
