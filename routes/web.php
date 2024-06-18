@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 
 Route::get('/', function () {
-    $title = 'Home';
+    $title = 'Kakaku Coffee';
     return view('main.home', compact('title'));
 });
 Route::get('/home', function () {
-    $title = 'Home';
+    $title = 'Kakaku Coffee';
     return view('main.home', compact('title'));
 });
 Route::get('/location', [LocationController::class, 'mainPage'])->name('location.main');
