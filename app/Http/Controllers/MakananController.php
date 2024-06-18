@@ -113,6 +113,7 @@ class MakananController extends Controller
     public function showMenu()
     {
         $makanans = Makanan::all()->groupBy('kategori'); 
-        return view('main.makanan', compact('makanans')); 
+        $title = 'Makanan';
+        return view('main.makanan', compact('makanans', 'title')); 
     }
 }

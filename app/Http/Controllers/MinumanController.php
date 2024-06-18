@@ -113,6 +113,7 @@ class MinumanController extends Controller
     public function showMenu()
     {
         $minumans = Minuman::all()->groupBy('kategori'); 
-        return view('main.minuman', compact('minumans'));
+        $title = 'Minuman';
+        return view('main.minuman', compact('minumans', 'title'));
     }
 }
