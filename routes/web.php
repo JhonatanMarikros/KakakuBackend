@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\MinumanController;
 
@@ -8,6 +9,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocationController;
 
 Route::get('/', function () {
     $title = 'Home';
@@ -17,6 +19,8 @@ Route::get('/home', function () {
     $title = 'Home';
     return view('main.home', compact('title'));
 });
+Route::get('/location', [LocationController::class, 'mainPage'])->name('location.main');
+
 Route::get('/menu/makanan', [MakananController::class, 'showMenu'])->name('makanan');
 
 Route::get('/menu/minuman', [MinumanController::class, 'showMenu'])->name('minuman');
@@ -39,8 +43,6 @@ Route::resource('adminmakanan', MakananController::class);
 
 Route::resource('adminminuman', MinumanController::class);
 
-
-
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
@@ -53,7 +55,7 @@ Route::post('admin/login', [AdminAuthController::class, 'login'])->name('admin.l
 Route::post('admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 
 Route::middleware(['auth:admin'])->group(function () {
-    Route::get('/adminhome', function() {
+    Route::get('/adminhome', function () {
         $title = 'Admin Home';
         return view('admin.home', compact('title'));
     })->name('admin.home');
@@ -62,6 +64,9 @@ Route::middleware(['auth:admin'])->group(function () {
 Route::middleware(['auth:admin'])->group(function () {
     Route::resource('adminuser', AdminUserController::class);
     Route::resource('admins', AdminController::class);
+    Route::resource('adminmakanan', MakananController::class);
+    Route::resource('adminminuman', MinumanController::class);
+    Route::resource('adminlocations', LocationController::class);
 });
 
 Route::get('/admincoupon', function () {
