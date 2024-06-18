@@ -7,7 +7,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\CouponController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 
@@ -67,9 +67,5 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::resource('adminmakanan', MakananController::class);
     Route::resource('adminminuman', MinumanController::class);
     Route::resource('adminlocations', LocationController::class);
+    Route::resource('admincoupon', CouponController::class);
 });
-
-Route::get('/admincoupon', function () {
-    $title = 'Coupon';
-    return view('admin.coupon', compact('title'));
-})->name('admincoupon')->middleware('auth:admin');
