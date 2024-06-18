@@ -2,7 +2,6 @@
 
 @section('container')
 <div class="container">
-    <h1>INI HOME</h1>
+    <h1>Welcome to Admin Dashboard</h1>
 </div>
-    
 @endsection
