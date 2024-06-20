@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('path/to/logo.png') }}" alt="Marugame Udon" class="navbar-logo">
+                <img src="{{ asset('image/Logo2.png') }}" alt="Kakaku Coffee" class="navbar-logo small-logo">
+                Kakaku Coffee
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
