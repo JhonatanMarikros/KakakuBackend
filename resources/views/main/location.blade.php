@@ -26,7 +26,7 @@
                     <p><strong>Hours of Operation:</strong></p>
                     <p>Monday - Saturday: {{ $location->open ? \Carbon\Carbon::createFromFormat('H:i:s', $location->open)->format('H:i') : 'N/A' }} - {{ $location->close ? \Carbon\Carbon::createFromFormat('H:i:s', $location->close)->format('H:i') : 'N/A' }}</p>
                     <p>Sunday: {{ $location->open ? \Carbon\Carbon::createFromFormat('H:i:s', $location->open)->format('H:i') : 'N/A' }} - {{ $location->close ? \Carbon\Carbon::createFromFormat('H:i:s', $location->close)->format('H:i') : 'N/A' }}</p>
-                    <button class="btn btn-danger btn-order"><a href="https://wa.me/+6288807069499">RESERVATION NOW</a></button>
+                    <button class="btn btn-danger btn-order"><a href="https://wa.me/6285770395446">RESERVATION NOW</a></button>
                 </div>
                 <div class="location-map">
                     @if ($location->image)
