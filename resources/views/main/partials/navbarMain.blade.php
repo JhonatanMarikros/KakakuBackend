@@ -18,13 +18,13 @@
               <a class="nav-link" href="#">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">LOCATION</a>
+              <a class="nav-link" href="#">Location</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">COUPON</a>
+              <a class="nav-link" href="#">Coupon</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-danger text-white" href="#">LOGIN/REGISTER</a>
+              <a class="nav-link btn btn-danger text-white" href="#">Login/Register</a>
             </li>
           </ul>
         </div>

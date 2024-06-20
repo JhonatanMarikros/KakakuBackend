@@ -52,7 +52,7 @@
 
 
 #about-us {
-    background-color: #3d3c3c;
+    background: linear-gradient(to top, #302f2f, #494545);
     padding: 50px 0;
 }
 
@@ -64,8 +64,9 @@
 
 #about-us p {
     color: whitesmoke;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
+    font-weight: 200;   
 }
 
 #about-us .img-fluid {
@@ -77,7 +78,7 @@
 
 
 #about-us-2 {
-    background-color: #333232;
+    background: linear-gradient(to bottom, #302f2f, #1b1a1a);
     padding: 50px 0;
 }
 
@@ -86,13 +87,18 @@
     color: whitesmoke;
     font-size: 2.5rem;
     margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
 }
 
 #about-us p,
 #about-us-2 p {
     color: whitesmoke;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 200;
     margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
 }
 
 #about-us .img-fluid,
@@ -103,7 +109,7 @@
 }
 
 #about-us-3 {
-    background-color: #302f2f;
+    background: linear-gradient(to top, #0f0f0f,#1b1a1a);
     padding: 50px 0;
 }
 
@@ -112,20 +118,25 @@
     color: whitesmoke;
     font-size: 2.5rem;
     margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
 }
 
 #about-us p,
 #about-us-3 p {
     color: whitesmoke;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 200;
     margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
 }
 
 #about-us .img-fluid,
 #about-us-3 .img-fluid {
     max-width: 50%;
     height: auto;
-    margin-left: 200px;
+    margin-left: 270px;
 }
 
 .footer {
@@ -185,3 +196,4 @@
     position: relative;
     z-index: 500; /* Pastikan z-index lebih rendah dari .brown-banner */
 }
+
