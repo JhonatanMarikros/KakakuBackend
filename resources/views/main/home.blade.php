@@ -57,10 +57,9 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h2>About Us</h2>
-                    <p>Marugame Udon provides hand crafted udon bowls, tempura, and beverages from a theater kitchen,
-                        allowing guests to watch as their food is prepared. Our udon noodles are made to order to ensure
-                        that you are getting the best tasting Japanese food around.</p>
+                    <h2>Kakaku Coffee</h2>
+                    <p>Welcome to Kakaku Coffee, a Japanese-themed café that brings the beauty and warmth of Japanese culture to the heart of the city. 
+                        At Kakaku Coffee, we blend traditional Japanese aesthetics with modern touches to create a serene and comfortable atmosphere for every visitor.</p>
                 </div>
                 <div class="col-md-6">
                     <img src="{{ asset('path/to/image.png') }}" class="img-fluid" alt="About Us Image">
