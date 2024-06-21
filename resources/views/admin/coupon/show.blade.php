@@ -1,3 +1,5 @@
+2 KB
+﻿
 @extends('admin.layouts.main')
 @section('container')
 <div class="container mt-5">

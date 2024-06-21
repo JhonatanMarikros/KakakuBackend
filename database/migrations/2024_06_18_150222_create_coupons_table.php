@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('coupons', function (Blueprint $table) {
@@ -17,15 +15,16 @@ return new class extends Migration
             $table->text('deskripsi')->nullable();
             $table->integer('jumlah');
             $table->string('gambar')->nullable();
+            $table->unsignedBigInteger('claimed_by')->nullable()->after('gambar');
+            $table->foreign('claimed_by')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('coupons');
+        Schema::table('coupons', function (Blueprint $table) {
+            $table->dropForeign(['claimed_by']);
+            $table->dropColumn('claimed_by');
+        });
     }
 };
