@@ -27,18 +27,17 @@
                         <a class="nav-link" href="/location">Location</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Coupon</a>
-                    </li>
-                    @guest
+                        <a class="nav-link" href="/coupons">Coupons</a>
+                    </li> @guest
                         <li class="nav-item">
-                            <a class="nav-link btn btn-danger text-white" href="{{ route('login') }}">Login/Register</a>
+                            <a class="nav-link btn btn-danger text-white" href="/login">Login/Register</a>
                         </li>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="#">Welcome, {{ Auth::user()->name }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-danger text-white" href="{{ route('logout') }}"
+                            <a class="nav-link btn btn-danger text-white" href="/logout"
                                 onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">Logout
                             </a>
