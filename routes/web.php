@@ -2,12 +2,12 @@
 
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\MinumanController;
-
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\CouponUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 
@@ -15,32 +15,26 @@ Route::get('/', function () {
     $title = 'Kakaku Coffee';
     return view('main.home', compact('title'));
 });
+
 Route::get('/home', function () {
     $title = 'Kakaku Coffee';
     return view('main.home', compact('title'));
 });
+
 Route::get('/location', [LocationController::class, 'mainPage'])->name('location.main');
 
 Route::get('/menu/makanan', [MakananController::class, 'showMenu'])->name('makanan');
-
 Route::get('/menu/minuman', [MinumanController::class, 'showMenu'])->name('minuman');
 
-// ADMIN
-Route::get('/adminhome', function () {
-    return view('admin.home', [
-        'title' => 'Home'
-    ]);
+// Middleware auth endurance untuk memastikan pengguna telah login
+Route::middleware(['auth'])->group(function () {
+    Route::get('/coupons', [CouponUserController::class, 'index'])->name('coupons.index');
+    Route::post('/coupons/{id}/claim', [CouponUserController::class, 'claim'])->name('coupons.claim');
 });
 
-Route::get('/admincoupon', function () {
-    return view('admin.coupon', [
-        'title' => 'Minuman'
-    ]);
-});
+// ADMIN Routes
 
 Route::resource('adminmakanan', MakananController::class);
-
-
 Route::resource('adminminuman', MinumanController::class);
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -49,7 +43,7 @@ Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// ADMIN
+// ADMIN Routes dengan auth middleware endurance
 Route::get('admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('admin/login', [AdminAuthController::class, 'login'])->name('admin.login.post');
 Route::post('admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
@@ -59,17 +53,11 @@ Route::middleware(['auth:admin'])->group(function () {
         $title = 'Admin Home';
         return view('admin.home', compact('title'));
     })->name('admin.home');
-});
 
-Route::middleware(['auth:admin'])->group(function () {
     Route::resource('adminuser', AdminUserController::class);
     Route::resource('admins', AdminController::class);
     Route::resource('adminmakanan', MakananController::class);
     Route::resource('adminminuman', MinumanController::class);
     Route::resource('adminlocations', LocationController::class);
+    Route::resource('admincoupon', CouponController::class);
 });
-
-Route::get('/admincoupon', function () {
-    $title = 'Coupon';
-    return view('admin.coupon', compact('title'));
-})->name('admincoupon')->middleware('auth:admin');
