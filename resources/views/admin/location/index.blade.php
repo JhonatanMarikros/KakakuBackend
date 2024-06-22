@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ asset('css/adminpage.css') }}">
 @extends('admin.layouts.main')
 @section('container')
 <div class="container">
