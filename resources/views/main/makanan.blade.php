@@ -32,30 +32,37 @@
                     </li>
                 </ul>
             </div>
+            
+            <div class="search-bar mb-4">
+                <input type="text" id="search-input" class="form-control" placeholder="Search for menu items..."
+                    onkeyup="searchMenu()">
+            </div>
 
             <nav class="menu-wrapper">
                 <ul id="menu-tabs" class="nav nav-pills justify-content-center">
                     <li class="menu-tab selected" data-tab="maincourse" onclick="showMenu('maincourse')">Maincourse</li>
                     <li class="menu-tab" data-tab="pasta" onclick="showMenu('pasta')">Pasta</li>
                     <li class="menu-tab" data-tab="bowl-series" onclick="showMenu('bowl-series')">Bowl Series</li>
-                    <li class="menu-tab" data-tab="french-fries-series" onclick="showMenu('french-fries-series')">French Fries Series</li>
+                    <li class="menu-tab" data-tab="french-fries-series" onclick="showMenu('french-fries-series')">French
+                        Fries Series</li>
                     <li class="menu-tab" data-tab="finger-food" onclick="showMenu('finger-food')">Finger Food</li>
                     <li class="menu-tab" data-tab="sweet" onclick="showMenu('sweet')">Sweet</li>
                 </ul>
             </nav>
 
-            @foreach($makanans as $category => $items)
-                <div class="category-tab" id="{{ str_replace(' ', '-', strtolower($category)) }}" style="{{ $category == 'maincourse' ? 'display: block;' : 'display: none;' }}">
+            @foreach ($makanans as $category => $items)
+                <div class="category-tab" id="{{ str_replace(' ', '-', strtolower($category)) }}"
+                    style="{{ $category == 'maincourse' ? 'display: block;' : 'display: none;' }}">
                     <div class="category-title">
-                        <h2><strong>{{ ucfirst($category) }}</strong></h2>
-                        <p class="cat-description">
-                            <i>
+                        <h2>
+                            <strong>{{ ucfirst($category) }}</strong>
+                            <i class="cat-description">
                                 <span> - </span>
                                 "Menu for {{ $category }}"
                             </i>
-                        </p>
+                        </h2>
                     </div>
-                    @foreach($items as $makanan)
+                    @foreach ($items as $makanan)
                         <div class="menu-item type-menu">
                             <div class="menu-item-image">
                                 <img src="{{ Storage::url($makanan->gambar) }}">
