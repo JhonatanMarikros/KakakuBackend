@@ -32,11 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/coupons/{id}/claim', [CouponUserController::class, 'claim'])->name('coupons.claim');
 });
 
-// ADMIN Routes
-
-Route::resource('adminmakanan', MakananController::class);
-Route::resource('adminminuman', MinumanController::class);
-
+// Auth Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
