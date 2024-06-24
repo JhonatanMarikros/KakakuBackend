@@ -61,19 +61,28 @@
                                 "Menu for {{ $category }}"
                             </i>
                         </h2>
-                    </div>
-                    @foreach ($items as $makanan)
-                        <div class="menu-item type-menu">
-                            <div class="menu-item-image">
-                                <img src="{{ Storage::url($makanan->gambar) }}">
-                            </div>
-                            <div class="menu-item-description">
-                                <h3>{{ $makanan->nama }}</h3>
-                                <p>{{ $makanan->deskripsi }}</p>
-                                <h4>Price: {{ $makanan->harga }}</h4>
-                            </div>
+                        <div class="sort-buttons">
+                            <select onchange="sortMenu('{{ str_replace(' ', '-', strtolower($category)) }}', this.value)">
+                                <option value="" disabled selected>Sort By</option>
+                                <option value="asc">Name: A-Z</option>
+                                <option value="desc">Name: Z-A</option>
+                            </select>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="menu-items-container">
+                        @foreach ($items as $makanan)
+                            <div class="menu-item type-menu">
+                                <div class="menu-item-image">
+                                    <img src="{{ Storage::url($makanan->gambar) }}">
+                                </div>
+                                <div class="menu-item-description">
+                                    <h3>{{ $makanan->nama }}</h3>
+                                    <p>{{ $makanan->deskripsi }}</p>
+                                    <h4>Price: {{ $makanan->harga }}</h4>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             @endforeach
 
