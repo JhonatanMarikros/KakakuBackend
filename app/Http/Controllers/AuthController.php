@@ -47,7 +47,7 @@ class AuthController extends Controller
         ]);
 
         // Redirect to login page after successful registration
-        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
+        return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
     }
 
     public function logout(Request $request)
