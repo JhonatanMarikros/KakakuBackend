@@ -12,7 +12,11 @@
 
 <body>
     <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-5">
+        <img src="{{ asset('image/Flower2.png') }}" class="img-fluid position-absolute" style="top: -80px; right: 330px;">
+        <img src="{{ asset('image/Flower2.png') }}" class="img-fluid position-absolute" style="top: -80px; right: 800px; transform: scaleX(-1);">
         <div class="login-container col-md-6">
+            <img src="{{ asset('image/Logo2.png') }}" class="img-fluid mx-auto d-block mb-3"
+                style="max-width: 100px; height: auto;" alt="Logo">
             <h2 class="login-heading text-center mb-4">{{ $title }}</h2>
 
             @if (session('success'))
@@ -41,6 +45,8 @@
                 <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
             </form>
         </div>
+        <img src="{{ asset('image/Flower3.png') }}" class="img-fluid position-absolute" style="top: -50px; right: -389px; width: 700px; ">
+        <img src="{{ asset('image/Flower3.png') }}" class="img-fluid position-absolute" style="top: -50px; right: 1200px; width: 700px; transform: scaleX(-1);">
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
