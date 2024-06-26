@@ -10,6 +10,8 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\CouponUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ContactController;
+use App\Mail\ContactMail;
 
 Route::get('/', function () {
     $title = 'Kakaku Coffee';
@@ -22,9 +24,15 @@ Route::get('/home', function () {
 });
 
 Route::get('/location', [LocationController::class, 'mainPage'])->name('location.main');
-
 Route::get('/menu/makanan', [MakananController::class, 'showMenu'])->name('makanan');
 Route::get('/menu/minuman', [MinumanController::class, 'showMenu'])->name('minuman');
+Route::get('/contact', function () {
+    return view('main.contact'); // Ganti dengan nama view yang sesuai
+})->name('contact');
+
+
+// Route untuk mengirimkan form Contact Us
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 // Middleware auth endurance untuk memastikan pengguna telah login
 Route::middleware(['auth'])->group(function () {
@@ -38,6 +46,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 // ADMIN Routes dengan auth middleware endurance
 Route::get('admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');

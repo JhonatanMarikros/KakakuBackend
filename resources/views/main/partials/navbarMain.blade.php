@@ -28,7 +28,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/coupons">Coupons</a>
-                    </li> @guest
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact Us</a>
+                    </li>
+                    @guest
                         <li class="nav-item">
                             <a class="nav-link btn btn-danger text-white" href="/login">Login/Register</a>
                         </li>
