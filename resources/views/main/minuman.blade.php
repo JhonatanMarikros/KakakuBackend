@@ -20,18 +20,6 @@
     <section class="menu-kakaku">
         <div class="wrapper">
             <h1 class="heading">MENU KAKAKU COFFEE</h1>
-            <div class="caption">
-                <ul>
-                    <li>
-                        <img src="{{ asset('image/favorite.png') }}" class="fav-img">
-                        <span> = Kakaku Coffee Favorite</span>
-                    </li>
-                    <li>
-                        <img src="{{ asset('image/spicy.png') }}" class="fav-img">
-                        <span> = Kakaku Coffee Spicy</span>
-                    </li>
-                </ul>
-            </div>
 
             <div class="search-bar mb-4">
                 <input type="text" id="search-input" class="form-control" placeholder="Search for menu items..." oninput="searchMenu()">

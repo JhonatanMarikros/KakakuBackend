@@ -1,6 +1,6 @@
 /* Gaya untuk mengubah warna teks saat dipilih */
 ::selection {
-    background: #B82D38; /* Warna latar belakang saat teks dipilih */
+    background: rgb(250, 112, 0);; /* Warna latar belakang saat teks dipilih */
     color: #fff; /* Warna teks saat dipilih */
 }
 
@@ -96,7 +96,7 @@ ul li::after {
 nav.menu-wrapper {
     display: flex;
     justify-content: center;
-    border: 2px solid #B82D38;
+    border: 2px solid rgb(250, 112, 0);
     border-radius: 6px;
     width: auto; /* Sesuaikan lebar menu-wrapper */
     margin: 0 auto; /* Agar menu tetap terpusat */
@@ -117,10 +117,10 @@ nav.menu-wrapper ul li {
     text-transform: uppercase;
     padding: 10px 20px; /* Sesuaikan padding agar lebih rapi */
     font-weight: bold;
-    color: #B82D38;
+    color: rgb(250, 112, 0);
     font-size: 1.2em;
     cursor: pointer;
-    border-right: 2px solid #B82D38;
+    border-right: 2px solid rgb(250, 112, 0);
     flex-grow: 1; /* Pastikan setiap item mengambil ruang yang sama */
     display: flex;
     align-items: center;
@@ -134,7 +134,7 @@ nav.menu-wrapper ul li:last-child {
 nav.menu-wrapper ul li.selected, 
 nav.menu-wrapper ul li:hover {
     color: #fff;
-    background: #B82D38;
+    background: rgb(250, 112, 0);
     border-right: none; /* Hilangkan batas saat item dipilih atau di-hover */
 }
 

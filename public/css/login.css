@@ -1,15 +1,63 @@
-body {
-    background-color: rgb(129, 75, 0)
+html, body {
+    height: 100%; /* Pastikan html dan body mengambil seluruh tinggi viewport */
+    margin: 0; /* Hapus margin default */
+    padding: 0; /* Hapus padding default */
+    overflow: hidden; /* Hapus kemampuan scroll */
 }
+
+body {
+    background-color: rgb(112, 68, 5);
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    min-height: 100vh; /* Pastikan body mengambil seluruh tinggi viewport */
+}
+
 .login-container {
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(71, 41, 5, 0.8); /* Tambahkan sedikit transparansi */
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    backdrop-filter: blur(10px); /* Tambahkan efek blur */
 }
+
 .login-heading {
     font-weight: 300;
 }
+
 .alert {
     margin-top: 1rem;
 }
+.form-group{
+    margin-bottom: 35px;
+}
+
+p{
+    color: white;
+}
+h2{
+    color: white;
+}
+.btn {
+    background-color: rgb(250, 112, 0);
+    color: white; /* Warna teks */
+    border: none; /* Hilangkan border */
+    padding: 10px 20px; /* Padding di dalam tombol */
+    text-align: center; /* Rata tengah teks */
+    text-decoration: none; /* Hilangkan underline pada teks */
+    display: inline-block; /* Tampilkan sebagai elemen inline-block */
+    font-size: 16px; /* Ukuran font */
+    margin: 4px 2px; /* Margin di sekitar tombol */
+    cursor: pointer; /* Tampilkan kursor pointer saat hover */
+    border-radius: 5px; /* Sudut tombol melengkung */
+    transition: background-color 0.3s; /* Transisi untuk efek hover */
+}
+.btn-outline-secondary{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0); /* Warna teks */
+    border: none; /* Hilangkan border */
+}
+.btn:hover {
+    background-color: rgb(88, 46, 7); /* Warna latar belakang saat hover */
+}
+
