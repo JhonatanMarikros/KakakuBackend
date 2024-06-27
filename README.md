@@ -1,3 +1,63 @@
+## Tim
+
+Jhonatan marikros - 535220189
+Asrul alif - 535220172
+Randy gunawan - 535220180
+Gerry dominiki sinaga - 535220225
+
+## TUTORIAL LOGIN/REGISTER
+
+User :
+1. Jalankan Perintah “php artisan migrate”Untuk memasukan Database migrations ke pgAdmin.
+2. Setelah menjalankan “php artisan migrate” Untuk menjalankan Web jalankan perintah “php
+artisan serve” setelah Web di jalankan langsung saja kilik tombol pada perintah
+“http://127.0.0.1:8000”.
+3. Register terlebih dahulu seperti memasukan,Name,Email,Password,dan Confirm Password
+dengan 8 karakter / huruf.
+4. Login dengan memasukan Email dan Password yang sudah terdaftar ketika sudah register.
+5. User akan di arah kan ke halaman utama ,untuk melihat produk produk yang sedang di
+promosikanm
+6. User juga bisa mencari makanan pada kafe tersebut dan juga mencari makanan atau minuman
+melalui kategori yang di pilih.
+7. User juga bisa mengeclaim/mendapatkan Coupon yang sudah di sediakan oleh Admin.
+8. Download laravel.sql untuk Database
+
+
+Admin:
+1. Jalankan Perintah “php artisan migrate” Untuk memasukan Database migrations ke pgAdmin.
+2. Setelah menjalankan “php artisan migrate” Untuk menjalankan Web jalankan perintah “php
+artisan serve” setelah Web di jalankan langsung saja kilik tombol pada perintah
+“http://127.0.0.1:8000”.
+3. Untuk admin Dia Hanya bisa Login dengan emal yang tersedia yaitu”Email:admin123@gmail.com
+Password:admin123.
+4. Jalankan Perintah” php artisan db:seed --class=SpecialAdminSeeder” Agar Email dan Password
+masuk kedalam Database.
+5.Untuk masuk ke Admin DashBord, Admin bisa langsung login sebagai Admin mengunakan
+“Email:admin123@gmail.com dan Password: admin123.
+6. Admin bisa langsung memilih apa aja yang mau di edit untuk melengkap kan web nya.
+7. Seperti Admin bisa meng edit,menambahkan,dan menghapus seperti Login pada User,Makanan
+dan Lain-lain.
+
+## Untuk .env
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=laravel
+DB_USERNAME=postgres
+DB_PASSWORD=admin
+
+## Untuk Email di .env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=kakakucoffeecafe@gmail.com
+MAIL_PASSWORD=ecbedwytocqhzqhr
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="kakakucoffeecafe@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
