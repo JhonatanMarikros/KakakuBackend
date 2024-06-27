@@ -34,19 +34,17 @@
             <form method="POST" action="{{ route('admin.login.post') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="email">Alamat Email</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}"
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"value="{{ old('email') }}"
                         required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Kata Sandi</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
+                <button type="submit" class="btn btn-block mt-4">Login</button>
             </form>
         </div>
         <img src="{{ asset('image/Flower3.png') }}" class="img-fluid position-absolute" style="top: -50px; right: -389px; width: 700px; ">
-        <img src="{{ asset('image/Flower3.png') }}" class="img-fluid position-absolute" style="top: -50px; right: 1200px; width: 700px; transform: scaleX(-1);">
+        <img src="{{ asset('image/Flower3.png') }}" class="img-fluid position-absolute" style="top: -50px; right: 1225px; width: 700px; transform: scaleX(-1);">
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>

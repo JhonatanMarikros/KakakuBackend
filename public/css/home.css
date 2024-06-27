@@ -33,7 +33,13 @@
     margin-right: 15px;
 }
 .navbar-nav .nav-link:hover {
-    color: red;
+    color: rgb(250, 112, 0);
+}
+.btn-danger{
+    background-color: rgb(250, 112, 0);
+}
+.btn-danger:hover{
+    background-color: rgb(250, 112, 0);
 }
 .navbar-nav .btn {
     border-radius: 25px;
